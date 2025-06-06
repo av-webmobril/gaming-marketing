@@ -3680,7 +3680,7 @@ button#audioToggleBtn:hover {
         bottom: 16px;
     }
     button#audioToggleBtn {
-        bottom: 20px;
+        bottom: 10px;
         top: auto;
         right: 10px;
         width: 40px;
