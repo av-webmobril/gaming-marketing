@@ -187,6 +187,22 @@ gsap.to([".sss3"], {
 
 let audio = document.getElementById("myAudio");
 let audioAllowed = false;
+const toggleBtn = document.getElementById("audioToggleBtn");
+toggleBtn.addEventListener("click", function () {
+    if (!audioAllowed) return; // Ensure audio is allowed by user interaction first
+
+    if (audio.paused) {
+        audio.play();
+        toggleBtn.innerText = "🔈 Pause Audio";
+        toggleBtn.classList.remove("audio-paused");
+        toggleBtn.classList.add("audio-playing");
+    } else {
+        audio.pause();
+        toggleBtn.innerText = "🔊 Play Audio";
+        toggleBtn.classList.remove("audio-playing");
+        toggleBtn.classList.add("audio-paused");
+    }
+});
 function enableAudio() {
     if (!audioAllowed) {
         audio.play().then(() => {
@@ -207,23 +223,35 @@ ScrollTrigger.create({
     onEnter: () => {
         if (audioAllowed) {
             audio.play();
+            toggleBtn.innerText = "🔈 Pause Audio"; // Sync button
+            toggleBtn.classList.remove("audio-paused");
+            toggleBtn.classList.add("audio-playing");
         }
     },
     onLeaveBack: () => {
         if (audioAllowed) {
             audio.pause();
             audio.currentTime = 0;
+            toggleBtn.innerText = "🔊 Play Audio"; // Sync button
+            toggleBtn.classList.remove("audio-playing");
+            toggleBtn.classList.add("audio-paused");
         }
     },
     onEnterBack: () => { 
         if (audioAllowed) {
             audio.play();
+            toggleBtn.innerText = "🔈 Pause Audio"; // Sync button
+            toggleBtn.classList.remove("audio-paused");
+            toggleBtn.classList.add("audio-playing");
         }
     },
     onLeave: () => {
         if (audioAllowed) {
             audio.pause();
             audio.currentTime = 0;
+            toggleBtn.innerText = "🔊 Play Audio"; // Sync button
+            toggleBtn.classList.remove("audio-playing");
+            toggleBtn.classList.add("audio-paused");
         }
     }
 });
@@ -262,6 +290,20 @@ document.addEventListener('ended', function(e) {
     }
 }, true);
 
+
+// $(document).ready(function () {
+//     $('#audioToggleBtn').click(function () {
+//         if (!audioAllowed) return; // ensure user has allowed audio
+
+//         if ($('#myAudio')[0].paused) {
+//             $('#myAudio')[0].play();
+//             $(this).text('🔈 Pause Audio');
+//         } else {
+//             $('#myAudio')[0].pause();
+//             $(this).text('🔊 Play Audio');
+//         }
+//     });
+// });
 // AudioEND
 
 /**********************Work Slider*********************/
