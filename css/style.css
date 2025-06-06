@@ -1769,6 +1769,42 @@ ul.keyfeatures-list {
 .section-8 .global-title-area {
     margin-bottom: 26px;
 }
+button#audioToggleBtn {
+    position: fixed;
+    z-index: 9999;
+    right: 20px;
+    top: 20px;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    font-size: 0;
+    border: 0;
+    border-radius: 70px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/mute.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: none;
+    transform: translate(0px, 0px) scale(1);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+button#audioToggleBtn.audio-paused{
+    background-image: url(../images/mute.png);
+}
+button#audioToggleBtn.audio-playing{
+    background-image: url(../images/play-audio.png);
+}
+button#audioToggleBtn:focus {
+    outline: none;
+    cursor: pointer;
+}
+button#audioToggleBtn:hover {
+    transform: translate(0px, 0px) scale(1.05);
+}
 @media (min-width: 1440px) and (max-height: 600px) {
     .horzanim .container {
       overflow: auto;
@@ -3011,6 +3047,10 @@ ul.keyfeatures-list {
         max-width: 670px;
         margin: 4rem auto;
     }
+    button#audioToggleBtn {
+        width: 50px;
+        height: 50px;
+    }
 }
 /* @media only screen and (max-width: 1024px) and (max-height: 900px) {
     .scrollElement {
@@ -3638,6 +3678,13 @@ ul.keyfeatures-list {
         max-width: 64px;
         left: 82px;
         bottom: 16px;
+    }
+    button#audioToggleBtn {
+        bottom: 20px;
+        top: auto;
+        right: 10px;
+        width: 40px;
+        height: 40px;
     }
 }
 @media only screen and (max-width: 499px) {
