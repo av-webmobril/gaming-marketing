@@ -263,6 +263,9 @@ document.addEventListener('play', function(e) {
       if (!audio.paused) {
         audio.pause();
         console.log('Background audio paused');
+        toggleBtn.innerText = "🔊 Play Audio"; // Sync button
+        toggleBtn.classList.remove("audio-playing");
+        toggleBtn.classList.add("audio-paused");
       }
     }
 }, true);
@@ -274,6 +277,9 @@ document.addEventListener('pause', function(e) {
         if (!anyPlaying && audio.paused) {
             audio.play();
             console.log('Video paused, resuming background audio');
+            toggleBtn.innerText = "🔈 Pause Audio"; // Sync button
+            toggleBtn.classList.remove("audio-paused");
+            toggleBtn.classList.add("audio-playing");
         }
     }
 }, true);
@@ -286,6 +292,9 @@ document.addEventListener('ended', function(e) {
         if (!anyPlaying && audio.paused) {
             audio.play();
             // console.log('Video ended, resuming background audio');
+            toggleBtn.innerText = "🔈 Pause Audio"; // Sync button
+            toggleBtn.classList.remove("audio-paused");
+            toggleBtn.classList.add("audio-playing");
         }
     }
 }, true);
