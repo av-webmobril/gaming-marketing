@@ -121,20 +121,20 @@ mount.to("g#cloud-light-screen", { x: -2100, ease: "power2.inOut" }, 0.02);
 mount.to("g#cloud-dark-screen", { x: -2100, ease: "power2.inOut" }, 0.03);
 
 //Person
-let char = gsap.timeline();
-char.to("g#base-group", { x: -2200 }, 6);
-char.to("g#step1", { x: -2000 }, 6);
-char.to("g#step2", { x: -2000 }, 6);
-char.to("g#step3", { x: -2000 }, 6);
-char.to("g#step4", { x: -2000 }, 6);
-char.to("g#step5", { x: -2000 }, 6);
-char.to("g#step6", { x: -2000 }, 6);
-char.to("g#step1", { y: 1000 }, 11);
-char.to("g#step2", { y: 1000 }, 11);
-char.to("g#step3", { y: 1000 }, 11);
-char.to("g#step4", { y: 1000 }, 11);
-char.to("g#step5", { y: 1000 }, 11);
-char.to("g#step6", { y: 1000 }, 11);
+// let char = gsap.timeline();
+// char.to("g#base-group", { x: -2200 }, 6);
+// char.to("g#step1", { x: -2000 }, 6);
+// char.to("g#step2", { x: -2000 }, 6);
+// char.to("g#step3", { x: -2000 }, 6);
+// char.to("g#step4", { x: -2000 }, 6);
+// char.to("g#step5", { x: -2000 }, 6);
+// char.to("g#step6", { x: -2000 }, 6);
+// char.to("g#step1", { y: 1000 }, 11);
+// char.to("g#step2", { y: 1000 }, 11);
+// char.to("g#step3", { y: 1000 }, 11);
+// char.to("g#step4", { y: 1000 }, 11);
+// char.to("g#step5", { y: 1000 }, 11);
+// char.to("g#step6", { y: 1000 }, 11);
 /*********Background color****************/
 // ScrollTrigger animation for background color change
 gsap.to(".wrapper-bg", {
@@ -336,22 +336,22 @@ $(document).ready(function(){
 });
 */
 
-$(document).ready(function () {
-    // Right-Click Disable
-    $(document).on("contextmenu", function (event) {
-        event.preventDefault();
-    });
+// $(document).ready(function () {
+//     // Right-Click Disable
+//     $(document).on("contextmenu", function (event) {
+//         event.preventDefault();
+//     });
 
-    // Keyboard Shortcuts Disable
-    $(document).on("keydown", function (event) {
-        if (event.ctrlKey && (event.key === "u" || event.key === "U")) {
-            event.preventDefault(); // Ctrl+U disable karega
-        }
-        if (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "i")) {
-            event.preventDefault(); // Ctrl+Shift+I disable karega
-        }
-        if (event.key === "F12") {
-            event.preventDefault(); // F12 disable karega
-        }
-    });
-});
+//     // Keyboard Shortcuts Disable
+//     $(document).on("keydown", function (event) {
+//         if (event.ctrlKey && (event.key === "u" || event.key === "U")) {
+//             event.preventDefault(); // Ctrl+U disable karega
+//         }
+//         if (event.ctrlKey && event.shiftKey && (event.key === "I" || event.key === "i")) {
+//             event.preventDefault(); // Ctrl+Shift+I disable karega
+//         }
+//         if (event.key === "F12") {
+//             event.preventDefault(); // F12 disable karega
+//         }
+//     });
+// });
