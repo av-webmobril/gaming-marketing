@@ -1,29 +1,40 @@
 gsap.registerPlugin(ScrollTrigger);
+
 function initHorizontalScroll() {
     if (window.innerWidth >= 768) {
         let sections = gsap.utils.toArray(".horzanim");
 
-        // const isMobile = window.innerWidth <= 768; 
-
-        // Initially disable scroll behavior
         document.body.classList.add("disable-scroll");
 
+        const triggerElement = document.querySelector(".horizontal-scroll-trigger");
+        const footer = document.querySelector(".footer-section"); // Target footer element
+        const body = document.querySelector("body");
         gsap.to(sections, {
             xPercent: -100 * (sections.length - 1),
             ease: "none",
             scrollTrigger: {
-                trigger: ".horizontal-scroll-trigger",
+                trigger: triggerElement,
                 pin: true,
-                scrub: 1,
+                scrub: 0.2,
                 snap: 1 / (sections.length - 1),
-                end: () => "+=" + document.querySelector(".horizontal-scroll-trigger").offsetWidth,
-                enabled: false, // Initially disabled
-                preventDefault: true // Prevent default scrolling on touch
+                end: () => "+=" + triggerElement.offsetWidth,
+                preventDefault: true,
+                onLeave: () => {
+                    if (footer) {
+                        footer.classList.add("footer-visible");
+                        body.classList.add("overflow");
+                    }
+                },
+                onEnterBack: () => {
+                    if (footer) {
+                        footer.classList.remove("footer-visible");
+                        body.classList.remove("overflow");
+                    }
+                }
             }
         });
-    }
-    else {
-        ScrollTrigger.killAll(); // Remove GSAP behavior when screen is smaller
+    } else {
+        ScrollTrigger.killAll();
     }
 }
         // SPLASH SCREEN ANIMATION & ENABLE SCROLL
