@@ -109,6 +109,9 @@ g#info2, g#info {
 .animation-1{
     z-index: 3;
 }
+.animation-1 img {
+    width: 100%;
+}
 .animation-3{
     z-index: 1;
 }
