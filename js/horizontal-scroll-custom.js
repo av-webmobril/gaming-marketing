@@ -335,7 +335,7 @@ $(document).ready(function(){
   });
 });
 */
-/*
+
 $(document).ready(function () {
     // Right-Click Disable
     $(document).on("contextmenu", function (event) {
@@ -355,4 +355,3 @@ $(document).ready(function () {
         }
     });
 });
-*/
