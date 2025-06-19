@@ -1698,6 +1698,9 @@ button#audioToggleBtn:focus {
 button#audioToggleBtn:hover {
     transform: translate(0, 0) scale(1.05);
 }
+#myAudio {
+    display: none;
+}
 @media (min-width: 1440px) and (max-height: 600px) {
     .horzanim .container {
         overflow: auto;
