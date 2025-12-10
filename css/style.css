@@ -233,11 +233,11 @@ g#Sun {
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url(../images/header-wood.png);
+    background-image: url(../images/header-wood.svg);
     background-position: top center;
     background-size: 100%;
     background-repeat: no-repeat;
-    margin-top: -130px;
+    margin-top: -135px;
     height: 100vh;
     z-index: -1;
 }
@@ -432,26 +432,31 @@ ul.flexybox {
     position: relative;
     list-style: none;
     padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 ul.flexybox li.offer-listing-elements {
     width: calc(25% - 15px);
-    position: relative;
 }
-ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
     position: relative;
     display: flex;
     align-items: end;
     text-align: center;
     justify-content: center;
-    background-image: url(../images/offer-card-bg.png);
+    background-image: url(../images/offer-card-bg.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 45px 32px;
 }
-ul.flexybox li.offer-listing-elements:before {
+ul.flexybox li.offer-listing-elements {
+    position: relative;
+    z-index: 2;
+}
+ul.flexybox li.offer-listing-elements .offer-listing-anchor:before, ul.flexybox li.offer-listing-elements:after {
     content: "";
-    background-image: url(../images/offer-card-hook.png);
+    background-image: url(../images/offer-card-hook-rope.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -460,12 +465,16 @@ ul.flexybox li.offer-listing-elements:before {
     height: 85px;
     display: block;
     position: absolute;
-    top: -75px;
+    top: -62px;
     left: 0;
     right: 0;
     margin: auto;
     z-index: -1;
     pointer-events: none;
+}
+ul.flexybox li.offer-listing-elements:after {
+    background-image: url(../images/offer-card-hook.svg);
+    z-index: 1;
 }
 .offer-listing-anchor img {
     max-height: 62px;
@@ -804,45 +813,53 @@ button#audioToggleBtn {
     left: 0;
     right: 0;
 }
-.foot-bottom .container,
-.modal-work .modal-content .modal-body {
+.foot-bottom .container{
     padding: 0;
 }
-.lg-outer .lg-img-wrap,
-.modal-work .innercontent .content {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
+/*********/
 .work-borderbox:before {
-    background-image: url(../images/work-border-top.png);
-    background-size: 100%;
+    content: "";
+    background-image: url(../images/work-border-top.svg);
+    background-size: cover;
+    height: 27.2px;
+    width: calc(100% - 50px);
     position: absolute;
     top: 0;
-    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
 }
 .work-borderbox:after {
-    background-image: url(../images/work-border-bottom.png);
-    background-size: 100%;
+    content: "";
+    background-image: url(../images/work-border-bottom.svg);
+    background-size: cover;
+    height: 27.2px;
+    width: calc(100% - 50px);
     position: absolute;
     bottom: -5px;
-    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
 }
 .work-lf-border {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: -8px;
     bottom: 0;
     width: calc(100% - 50px);
-    height: calc(100% - 38px);
+    height: calc(100% - 16px);
     margin-left: auto;
     margin-right: auto;
     z-index: -1;
 }
-.work-lf-border:after,
-.work-lf-border:before {
+.work-lf-border:before, .work-lf-border:after {
     content: "";
-    background-image: url(../images/chain.png);
+    background-image: url(../images/chain.svg);
     height: 100%;
     width: 34.4px;
     position: absolute;
@@ -870,6 +887,21 @@ button#audioToggleBtn {
     mix-blend-mode: multiply;
     opacity: 0.3;
 }
+@keyframes moveChainbase {
+    0% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-5px) rotate(0.5deg); }
+    50% { transform: translateX(0) rotate(0deg); }
+    75% { transform: translateX(5px) rotate(-0.5deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+}
+g#chain-wrapper > g {
+    transform-origin: bottom center;
+    transform-box: border-box;
+}
+.work-box .innercontent, .work-borderbox:before, .work-borderbox:after{
+    animation: moveChainbase 6s linear infinite;
+}
+/*******/
 .work-box {
     position: relative;
     width: calc(100% - 150px);
@@ -1384,11 +1416,14 @@ ul.slick-dots > li.slick-active button {
 }
 .digital-left-area .digital-accelerator-title-area {
     display: block;
+    padding-top: 80px;
     text-align: center;
-    padding: 80px 60px 130px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 130px;
     width: 88%;
     position: relative;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 .digital-accelerator-title-area:before,
 .horzanim .global-accelerator-title-area:before {
@@ -1429,9 +1464,9 @@ ul.slick-dots > li.slick-active button {
 .section2toy {
     pointer-events: none;
     position: absolute;
-    bottom: -30px;
+    bottom: 54px;
     width: 160px;
-    left: 40px;
+    left: 50px;
 }
 .horzanim .global-accelerator-title-area {
     display: block;
@@ -1469,8 +1504,8 @@ ul.slick-dots > li.slick-active button {
     right: -3px;
 }
 .section-3.horzanim .offer-toy img {
-    -webkit-filter: drop-shadow(5px 5px 5px #36120670);
-    filter: drop-shadow(5px 5px 5px #36120670);
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(54, 18, 6, 0.439));
+    filter: drop-shadow(5px 5px 5px rgba(54, 18, 6, 0.439));
 }
 .section-3.horzanim .global-title-area {
     margin-bottom: 10px;
@@ -1492,19 +1527,19 @@ ul.slick-dots > li.slick-active button {
     z-index: 2;
 }
 .section-5.horzanim .technologies-toy {
-    max-width: 120px;
+    max-width: 180px;
     position: absolute;
     z-index: 2;
-    right: 100px;
-    bottom: 50px;
+    right: 90px;
+    bottom: 30px;
     top: auto;
 }
 .section-6.horzanim .features-toy {
-    max-width: 140px;
+    max-width: 110px;
     position: absolute;
-    bottom: -40px;
+    bottom: 36px;
     z-index: 1;
-    right: 120px;
+    right: 140px;
 }
 .section-7.horzanim .ourwork-toy {
     position: absolute;
@@ -1513,11 +1548,11 @@ ul.slick-dots > li.slick-active button {
     max-width: 110px;
 }
 .section-8.horzanim .clients-toy {
-    max-width: 150px;
+    max-width: 120px;
     position: absolute;
     z-index: 2;
-    left: 320px;
-    bottom: 18px;
+    left: 300px;
+    bottom: 28px;
     top: auto;
 }
 .sslogo {
@@ -1532,7 +1567,7 @@ ul.slick-dots > li.slick-active button {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-image: url(../images/splash-background.jpg);
+    background-image: url(../images/splash-background.svg);
     background-size: cover;
     background-position: bottom left;
     color: #fff;
@@ -1650,6 +1685,36 @@ ul.keyfeatures-list {
     background-position: center;
     justify-content: center;
 }
+/* Odd logos start lower */
+.client-logo li:nth-child(odd) {
+  transform: translateY(50%);
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+/* Even logos start normal */
+.client-logo li:nth-child(even) {
+  transform: translateY(0);
+  animation: floatDown 6s ease-in-out infinite;
+}
+
+/* --- Floating keyframes --- */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(50%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+}
 .client-list .c_logo {
     text-align: center;
 }
@@ -1701,6 +1766,150 @@ button#audioToggleBtn:hover {
 #myAudio {
     display: none;
 }
+/***Update 19-09-2025****/
+ul.flexybox li.offer-listing-elements .offer-listing-anchor{
+    animation: sway 2.4s infinite;
+    transform-box: view-box;
+    transform-origin: top;
+}
+ul.flexybox li.offer-listing-elements:hover .offer-listing-anchor{
+    animation-play-state: paused;
+}
+ul.flexybox li.offer-listing-elements:nth-child(n+5) {
+    position: relative;
+    z-index: 1;
+}
+ul.flexybox li.offer-listing-elements:nth-child(n+5)::after {
+    opacity: 0;
+}
+@keyframes sway{
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+.section-1 .container{
+    perspective: 1000px;
+}
+.header-wood{
+  transform-origin: top center;
+  animation: swing 3s ease-in-out infinite;
+}
+@keyframes swing {
+  0%   { transform: rotateX(10deg) translateY(0); }
+  50%  { transform: rotateX(-5deg) translateY(0px); }
+  100% { transform: rotateX(10deg) translateY(0); }
+}
+.digital-acc-listing-elements-inner{
+    perspective: 1000px;
+}
+li.digital-acc-listing-elements .digital-acc-listing-item{
+  transform-origin: top center;
+  animation: swing2 3s ease-in-out infinite;
+}
+.section-2 ul.digital-acc-listing li.digital-acc-listing-elements:after{
+    -webkit-animation: mover 3s ease-in-out infinite;
+    animation: mover 3s ease-in-out infinite;
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes swing2 {
+  0%   { transform: rotateY(10deg) translateY(0); }
+  50%  { transform: rotateY(-10deg) translateY(10px); }
+  100% { transform: rotateY(10deg) translateY(0); }
+}
+.section-2 ul.digital-acc-listing li.digital-acc-listing-elements:hover .digital-acc-listing-item, 
+.section-2 ul.digital-acc-listing li.digital-acc-listing-elements:hover:after{
+    animation-play-state: paused;
+}
+@keyframes swayodd{
+    0%   { transform: rotateX(10deg) translateY(0); }
+    50%  { transform: rotateX(-5deg) translateY(0); }
+    100% { transform: rotateX(10deg) translateY(0); }
+}
+@keyframes swayeven{
+    0%   { transform: rotateX(-10deg) translateY(0); }
+    50%  { transform: rotateX(5deg) translateY(0); }
+    100% { transform: rotateX(-10deg) translateY(0); }
+}
+.wood-list{
+    perspective: 1000px;
+}
+.wood-list .word-item-group{
+    transform-origin: top center;
+    animation: swayodd 3s ease-in-out infinite;
+}
+.wood-list .word-item-group:nth-child(even){
+    transform-origin: top center;
+    animation: swayeven 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+ul.techlogo-list li {
+    animation: spin 5s linear infinite;
+}
+ul.techlogo-list li .techlogo-icon{
+    transform: rotate(-360deg); /* outer ke ulte rotate karna */
+  animation: spin-reverse 5s linear infinite;
+}
+@keyframes drift {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+ul.provide-list>li:nth-child(1) {
+  animation: drift 3s ease-in-out infinite alternate;
+}
+ul.provide-list>li:nth-child(2) {
+  animation: drift 3s ease-in-out infinite alternate 0.5s;
+}
+ul.provide-list>li:nth-child(3) {
+  animation: drift 3s ease-in-out infinite alternate 1s;
+}
+ul.provide-list>li:nth-child(4) {
+  animation: drift 3s ease-in-out infinite alternate;
+}
+ul.provide-list>li:nth-child(5) {
+  animation: drift 3s ease-in-out infinite alternate 0.5s;
+}
+ul.provide-list>li:nth-child(6) {
+  animation: drift 3s ease-in-out infinite alternate 1s;
+}
+ul.provide-list>li:nth-child(7) {
+  animation: drift 3s ease-in-out infinite alternate;
+}
+ul.provide-list>li:nth-child(8) {
+  animation: drift 3s ease-in-out infinite alternate 0.5s;
+}
+ul.provide-list>li:nth-child(9) {
+  animation: drift 3s ease-in-out infinite alternate 1s;
+}
+ul.provide-list>li:nth-child(10) {
+  animation: drift 3s ease-in-out infinite alternate 0.5s;
+}
+ul.provide-list>li:nth-child(11) {
+  animation: drift 3s ease-in-out infinite alternate 1s;
+}
+ul.provide-list>li:nth-child(12) {
+  animation: drift 3s ease-in-out infinite alternate;
+}
+/***End Update 19-09-2025****/
 @media (min-width: 1440px) and (max-height: 600px) {
     .horzanim .container {
         overflow: auto;
@@ -1781,7 +1990,6 @@ button#audioToggleBtn:hover {
         flex: 0 0 74px;
         margin-right: 24px;
     }
-    .woodwrap,
     ul.flexybox {
         width: 85%;
     }
@@ -1790,32 +1998,43 @@ button#audioToggleBtn:hover {
         margin-left: auto;
         margin-right: auto;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing {
         padding: 26px 32px;
     }
-    ul.flexybox li.offer-listing-elements::before {
+    ul.flexybox li.offer-listing-elements .offer-listing-anchor:before, ul.flexybox li.offer-listing-elements:after{
         width: 150px;
         height: 65px;
         top: -58px;
     }
     .section2toy {
-        left: 108px;
+        left: 140px;
+        bottom: 46px;
+        width: 140px;
     }
     .section-3.horzanim .offer-toy {
         max-width: 220px;
         top: -60px;
-        right: 27px;
+        right: 62px;
     }
     .section-4.horzanim .we-develop-toy {
         max-width: 140px;
         left: 135px;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 100px;
-        right: 160px;
-        bottom: 40px;
+        max-width: 150px;
+        right: 150px;
+        bottom: 36px;
+    }
+    .section-8.horzanim .clients-toy {
+        max-width: 105px;
+        position: absolute;
+        z-index: 2;
+        left: 340px;
+        bottom: 28px;
+        top: auto;
     }
     .woodwrap {
+        width: 85%;
         flex: 0 0 85%;
         margin: auto;
     }
@@ -1848,8 +2067,9 @@ button#audioToggleBtn:hover {
         width: 86%;
     }
     .section-6.horzanim .features-toy {
-        right: 186px;
-        max-width: 122px;
+        right: 178px;
+        max-width: 98px;
+        bottom: 26px;
     }
     .section-7.horzanim .global-accelerator-title-area {
         padding-top: 40px;
@@ -1931,9 +2151,9 @@ button#audioToggleBtn:hover {
         width: 75%;
     }
     .section2toy {
-        left: 102px;
-        bottom: -27px;
-        width: 128px;
+        left: 122px;
+        bottom: 33px;
+        width: 108px;
     }
     .digital-accelerator-title-area::before {
         margin-top: -122px;
@@ -1999,8 +2219,11 @@ button#audioToggleBtn:hover {
     .section-3 p {
         font-size: 14px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 33px 32px;
+    }
+    ul.flexybox {
+        width: 95%;
     }
     .section-3.horzanim .global-title-area {
         margin-bottom: 15px;
@@ -2030,9 +2253,9 @@ button#audioToggleBtn:hover {
         padding: 14px 20px;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 80px;
-        right: 144px;
-        bottom: 30px;
+        max-width: 126px;
+        right: 118px;
+        bottom: 20px;
     }
     .techwood-line {
         height: 35px;
@@ -2070,12 +2293,13 @@ button#audioToggleBtn:hover {
         gap: 18px;
     }
     .section-6.horzanim .features-toy {
-        right: 200px;
+        right: 150px;
         max-width: 84px;
+        bottom: 28px;
     }
     .section-8.horzanim .clients-toy {
-        max-width: 124px;
-        left: 280px;
+        max-width: 102px;
+        left: 284px;
         bottom: 9px;
     }
     .section-7.horzanim .ourwork-toy {
@@ -2092,6 +2316,35 @@ button#audioToggleBtn:hover {
     .work-box .worklogos li button {
         width: 122px;
         height: 122px;
+    }
+    .footContent {
+        padding: 84px 72px;
+    }
+    .footImg {
+        max-width: 36%;
+    }
+    .footContent:after, .footContent:before {
+        right: 42px;
+        height: 167px;
+    }
+    .footContent:before {
+        bottom: -94px;
+    }
+    .footContent:after {
+        top: -94px;
+    }
+    #wmlogo {
+        padding-bottom: 110px;
+        max-width: 398px;
+    }
+    .foot-top {
+        margin-top: -130px;
+    }
+    .work-borderbox:before {
+        height: 23.2px;
+    }
+    .work-borderbox:after {
+        height: 22.2px;
     }
 }
 @media (min-width: 1367px) and (max-height: 650px) {
@@ -2290,15 +2543,18 @@ button#audioToggleBtn:hover {
         padding: 29px 26px;
     }
     .section2toy {
-        left: 102px;
-        bottom: -27px;
-        width: 128px;
+        left: 122px;
+        bottom: 34px;
+        width: 108px;
     }
     .section-3 p {
         font-size: 14px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 33px 32px;
+    }
+    ul.flexybox {
+        width: 95%;
     }
     .offer-listing-anchor img {
         max-height: 50px;
@@ -2320,8 +2576,8 @@ button#audioToggleBtn:hover {
         margin-bottom: 15px;
     }
     .section-4.horzanim .we-develop-toy {
-        max-width: 130px;
-        left: 94px;
+        left: 106px;
+        bottom: -46px;
     }
     .woodwrap {
         width: 95%;
@@ -2341,13 +2597,14 @@ button#audioToggleBtn:hover {
         padding: 14px 20px;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 80px;
-        right: 144px;
-        bottom: 30px;
+        max-width: 132px;
+        right: 132px;
+        bottom: 20px;
     }
     .section-6.horzanim .features-toy {
-        right: 200px;
-        max-width: 84px;
+        right: 140px;
+        max-width: 90px;
+        bottom: 16px;
     }
     .section-7.horzanim .ourwork-toy {
         bottom: 29px;
@@ -2371,9 +2628,15 @@ button#audioToggleBtn:hover {
         height: 122px;
     }
     .section-8.horzanim .clients-toy {
-        max-width: 124px;
+        max-width: 95px;
         left: 280px;
-        bottom: 9px;
+        bottom: 12px;
+    }
+    .work-borderbox:before {
+        height: 23.2px;
+    }
+    .work-borderbox:after {
+        height: 22.2px;
     }
 }
 @media (min-width: 768px) and (max-height: 700px) {
@@ -2492,9 +2755,9 @@ button#audioToggleBtn:hover {
         margin-top: -84px;
     }
     .section2toy {
-        left: 80px;
-        bottom: -22px;
-        width: 118px;
+        left: 100px;
+        bottom: 34px;
+        width: 98px;
     }
     .digital-left-area .digital-accelerator-title-area {
         padding-top: 40px;
@@ -2510,7 +2773,7 @@ button#audioToggleBtn:hover {
     .offer-listing-anchor img {
         max-height: 38px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 24px 20px;
     }
     .section-3 p {
@@ -2518,11 +2781,11 @@ button#audioToggleBtn:hover {
     }
     .section-3.horzanim .offer-toy {
         max-width: 136px;
-        top: -38px;
-        right: 38px;
+        top: -36px;
+        right: 52px;
     }
     .section-4.horzanim .we-develop-toy {
-        max-width: 110px;
+        max-width: 116px;
         left: 88px;
         bottom: -44px;
     }
@@ -2543,7 +2806,7 @@ button#audioToggleBtn:hover {
         padding: 6px 20px;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 74px;
+        max-width: 112px;
         right: 116px;
     }
     ul.techlogo-list li:nth-child(2n) {
@@ -2551,8 +2814,8 @@ button#audioToggleBtn:hover {
         margin-left: -62px;
     }
     .section-6.horzanim .features-toy {
-        right: 140px;
-        max-width: 88px;
+        right: 126px;
+        max-width: 76px;
     }
     .work-box .worklogos,
     ul.provide-list {
@@ -2627,9 +2890,9 @@ button#audioToggleBtn:hover {
         margin-bottom: 10px;
     }
     .section-8.horzanim .clients-toy {
-        max-width: 104px;
+        max-width: 82px;
         left: 250px;
-        bottom: 11px;
+        bottom: 12px;
     }
     .client-list ul.client-logo > li {
         width: 140px;
@@ -2695,6 +2958,15 @@ button#audioToggleBtn:hover {
         left: auto;
         right: -4px;
     }
+    .work-borderbox:before {
+        height: 19.2px;
+    }
+    .work-borderbox:after {
+        height: 19.2px;
+    }
+    .work-lf-border {
+        height: calc(100% - 8px);
+    }
 }
 @media only screen and (max-width: 991px) {
     .wrapper-bg {
@@ -2729,7 +3001,7 @@ button#audioToggleBtn:hover {
     }
     .header-wood:before {
         content: "";
-        background-image: url(../images/header-wood-tablet.png);
+        background-image: url(../images/header-wood-tablet.svg);
         margin-top: -150px;
     }
     .header-character {
@@ -2743,13 +3015,13 @@ button#audioToggleBtn:hover {
     }
     .digital-left-area .digital-accelerator-title-area {
         padding-top: 30px;
-        padding-bottom: 100px;
+        padding-bottom: 80px;
         width: 90%;
     }
     .section2toy {
-        left: 10px;
-        bottom: -20px;
-        width: 120px;
+        left: 20px;
+        bottom: 42px;
+        width: 90px;
     }
     .horzanim .global-subtitle {
         font-size: 16px;
@@ -2787,6 +3059,7 @@ button#audioToggleBtn:hover {
         max-width: 94px;
         left: 60px;
         bottom: -40px;
+        z-index: 4;
     }
     .wood-line {
         height: 24px;
@@ -2849,12 +3122,13 @@ button#audioToggleBtn:hover {
         margin-left: 0;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 66px;
-        right: 88px;
+        max-width: 88px;
+        right: 82px;
     }
     .section-6.horzanim .features-toy {
-        right: 96px;
-        max-width: 76px;
+        right: 88px;
+        max-width: 60px;
+        bottom: 22px;
     }
     .modal-work .innercontent .project-img {
         flex: 0 0 100%;
@@ -2926,9 +3200,65 @@ button#audioToggleBtn:hover {
         max-width: 66px;
     }
     .section-8.horzanim .clients-toy {
-        max-width: 84px;
-        left: 174px;
+        max-width: 62px;
+        left: 180px;
         bottom: 16px;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(n+5), ul.flexybox li.offer-listing-elements:nth-child(n+4) {
+        position: relative;
+        z-index: 1;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(n+7) {
+        position: relative;
+        z-index: 0;
+    }
+    .section-1>.container {
+        padding-top: 115px;
+    }
+    .word-item-group {
+        margin-top: -48px;
+    }
+    .wood-list .word-item-group, .wood-list .word-item-group:nth-child(even) {
+        animation: swayodd 3s ease-in-out infinite;
+    }
+    .wood-list .word-item-group:hover, ul.flexybox li.offer-listing-elements:hover .offer-listing-anchor, .section-2 ul.digital-acc-listing li.digital-acc-listing-elements:hover .digital-acc-listing-item, .section-2 ul.digital-acc-listing li.digital-acc-listing-elements:hover:after{
+        animation-play-state: running;
+    }
+    ul.provide-list>li:nth-child(1) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(2) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(3) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(4) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(5) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(6) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(7) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(8) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(9) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(10) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(11) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(12) {
+        animation: drift 3s ease-in-out infinite alternate;
     }
     .splash-title, .splash-title-shad {
         font-size: 42px;
@@ -2968,6 +3298,13 @@ button#audioToggleBtn:hover {
     .sslogo {
         max-width: 280px;
         margin: 0 auto 10px;
+    }
+    .work-borderbox:before {
+        height: 14.2px;
+    }
+    .work-borderbox:after {
+        height: 14.2px;
+        bottom: -3px;
     }
 }
 @media only screen and (max-width: 767px) {
@@ -3124,9 +3461,9 @@ button#audioToggleBtn:hover {
         margin-right: 10px;
     }
     .section2toy {
-        left: 10px;
-        bottom: -16px;
-        width: 90px;
+        left: -7px;
+        bottom: 64px;
+        width: 74px;
     }
     .horzanim .global-accelerator-title-area {
         padding-top: 16px;
@@ -3136,7 +3473,7 @@ button#audioToggleBtn:hover {
     ul.flexybox li.offer-listing-elements {
         width: calc(50% - 15px);
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 36px 26px;
     }
     .section-3 p {
@@ -3171,7 +3508,7 @@ button#audioToggleBtn:hover {
         padding: 11px 20px;
     }
     .word-item-group {
-        margin-top: -28px;
+        margin-top: -32px;
     }
     .foot-top,
     ul.techlogo-list > li:first-child,
@@ -3194,21 +3531,21 @@ button#audioToggleBtn:hover {
         margin-top: 26px;
     }
     .section-3.horzanim .offer-toy {
-        max-width: 110px;
-        top: -26px;
-        right: 12px;
+        max-width: 100px;
+        top: -11px;
+        right: 0;
     }
     .section-7.horzanim .ourwork-toy {
         left: 80px;
     }
     .section-5.horzanim .technologies-toy {
-        max-width: 56px;
+        max-width: 82px;
         right: 20px;
     }
     .section-6.horzanim .features-toy {
         right: 28px;
         max-width: 50px;
-        bottom: 30px;
+        bottom: 22px;
     }
     #wmlogo {
         padding-left: 0;
@@ -3324,18 +3661,81 @@ button#audioToggleBtn:hover {
         margin-bottom: 20px;
     }
     .section-8.horzanim .clients-toy {
-        max-width: 72px;
-        left: 100px;
+        max-width: 54px;
+        left: 106px;
         bottom: 20px;
     }
     .modal-work .innercontent .content {
         padding-top: 0;
         padding-bottom: 0;
     }
+    ul.flexybox li.offer-listing-elements {
+        z-index: 3;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(n+3){
+        z-index: 2;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(n+5){
+        z-index: 1;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(n+7){
+        z-index: 0;
+    }
+    ul.provide-list>li:nth-child(1) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(2) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(3) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(4) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(5) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(6) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(7) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(8) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(9) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(10) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    ul.provide-list>li:nth-child(11) {
+        animation: drift 3s ease-in-out infinite alternate;
+    }
+    ul.provide-list>li:nth-child(12) {
+        animation: drift 3s ease-in-out infinite alternate 0.5s;
+    }
+    .work-borderbox:before, .work-borderbox:after{
+        width: calc(100% - 34px);
+    }
+    .work-borderbox:before {
+        height: 10.2px;
+    }
+    .work-borderbox:after {
+        height: 10.2px;
+        bottom: 2px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .horzanim {
         overflow: auto;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .client-logo li:nth-child(even), .client-logo li:nth-child(odd) {
+        animation: floatDown 6s ease-in-out infinite;
     }
 }
 @media (max-width: 767px) and (max-height: 530px) {
@@ -3357,10 +3757,13 @@ button#audioToggleBtn:hover {
         width: 100%;
     }
     .header-wood {
+        padding-top: 110px;
         width: 100%;
         max-width: 100%;
         margin: auto;
-        padding: 110px 20px 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 50px;
     }
     .section-1 p.typed-description {
         font-size: 14px;
@@ -3376,7 +3779,7 @@ button#audioToggleBtn:hover {
     }
     .header-wood:before {
         content: "";
-        background-image: url(../images/header-wood-mobile.png);
+        background-image: url(../images/header-wood-mobile.svg);
         margin-top: -180px;
         height: auto;
     }
@@ -3400,7 +3803,10 @@ button#audioToggleBtn:hover {
     }
     .digital-left-area .digital-accelerator-title-area {
         width: 100%;
-        padding: 16px 40px 100px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 16px;
+        padding-bottom: 70px;
     }
     .digital-accelerator-title-area::before {
         background-image: url(../images/section2-title-bg-mobile.png);
@@ -3425,9 +3831,9 @@ button#audioToggleBtn:hover {
         font-size: 16px;
     }
     .section2toy {
-        left: 16px;
-        bottom: -16px;
-        width: 80px;
+        left: -14px;
+        bottom: 36px;
+        width: 84px;
     }
     .horzanim .global-accelerator-title-area::before {
         background-image: url(../images/section3-title-bg-mobile.png);
@@ -3439,7 +3845,7 @@ button#audioToggleBtn:hover {
         width: 100%;
         gap: 20px 10px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing {
         padding: 20px 16px;
     }
     ul.flexybox li.offer-listing-elements {
@@ -3448,21 +3854,30 @@ button#audioToggleBtn:hover {
     .section-4.horzanim .we-develop-toy {
         max-width: 60px;
         left: 34px;
-        bottom: -36px;
-    }
-    .wood-line {
-        height: 12px;
+        bottom: -34px;
     }
     .slick-arrow,
     button#audioToggleBtn {
         width: 40px;
         height: 40px;
     }
-    .wood-list > .word-item-group:nth-child(2) {
+    .wood-list {
+        margin-top: 2px;
+    }
+    .wood-line {
+        height: 12px;
+        display: none;
+    }
+    .word-item-group {
+        width: 100%;
+    }
+    .word-item-group ul {
+        font-size: 16px;
+    }
+    .wood-list>.word-item-group:nth-child(2) {
         z-index: 2;
     }
-    .wood-list > .word-item-group:nth-child(3),
-    .wood-list > .word-item-group:nth-child(4) {
+    .wood-list>.word-item-group:nth-child(3), .wood-list>.word-item-group:nth-child(4) {
         z-index: 1;
     }
     .word-item-group ul > li {
@@ -3474,19 +3889,38 @@ button#audioToggleBtn:hover {
     .word-item-group ul > li:nth-child(3) {
         padding: 32px 20px;
     }
-    .wood-list > .word-item-group:nth-child(2),
-    .word-item-group {
-        margin-top: -16px;
+    .wood-list>.word-item-group:nth-child(2), .wood-list>.word-item-group:nth-child(3){
+        margin-top: 30px;
     }
-    ul.techlogo-list > li:first-child,
-    ul.techlogo-list > li:nth-child(2),
-    ul.techlogo-list > li:nth-child(3) {
+    .wood-list>.word-item-group:before {
+        content: "";
+        display: block;
+        width: 100%;
+        background-image: url(../images/wooden-line.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        height: 10px;
+        top: 12px;
+    }
+    ul.techlogo-list>li:nth-child(1), ul.techlogo-list>li:nth-child(2), ul.techlogo-list>li:nth-child(3) {
         margin-top: 26px;
     }
+    .section-3.horzanim .offer-toy {
+        max-width: 90px;
+        top: -13px;
+        right: -10px;
+    }
+    .section-5.horzanim .technologies-toy {
+        max-width: 74px;
+        right: 7px;
+        bottom: 18px;
+    }
     .section-6.horzanim .features-toy {
-        right: 28px;
-        max-width: 50px;
-        bottom: 26px;
+        right: 20px;
+        max-width: 48px;
+        bottom: 20px;
     }
     .section-7.horzanim .global-accelerator-title-area {
         padding-top: 42px;
@@ -3629,7 +4063,10 @@ button#audioToggleBtn:hover {
     }
     .digital-left-area .digital-accelerator-title-area {
         width: 100%;
-        padding: 10px 20px 86px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 56px;
     }
     .horzanim:before {
         max-width: 330px;
@@ -3638,8 +4075,9 @@ button#audioToggleBtn:hover {
         padding-top: 72px;
     }
     .section2toy {
-        left: 10px;
-        width: 70px;
+        left: -10px;
+        width: 60px;
+        bottom: 40px;
     }
     ul.flexybox li.offer-listing-elements {
         width: 100%;
@@ -3650,7 +4088,7 @@ button#audioToggleBtn:hover {
     .section-3 p {
         font-size: 16px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 58px 16px;
     }
     .horzanim .global-accelerator-title-area {
@@ -3661,9 +4099,19 @@ button#audioToggleBtn:hover {
         padding: 28px 24px;
     }
     .section-3.horzanim .offer-toy {
-        max-width: 94px;
-        top: -20px;
-        right: 8px;
+        max-width: 80px;
+        top: -12px;
+        right: 1px;
+    }
+    .section-5.horzanim .technologies-toy {
+        max-width: 50px;
+        right: 10px;
+        bottom: 34px;
+    }
+    .section-6.horzanim .features-toy {
+        right: 18px;
+        max-width: 44px;
+        bottom: 28px;
     }
     .word-item-group ul > li {
         padding: 13px 20px;
@@ -3721,6 +4169,30 @@ button#audioToggleBtn:hover {
     .client-list ul.client-logo > li {
         width: 130px;
         height: 144px;
+    }
+    ul.flexybox li.offer-listing-elements {
+        z-index: 8;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(2){
+        z-index: 7;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(3){
+        z-index: 6;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(4){
+        z-index: 5;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(5){
+        z-index: 4;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(6){
+        z-index: 3;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(7){
+        z-index: 2;
+    }
+    ul.flexybox li.offer-listing-elements:nth-child(8){
+        z-index: 1;
     }
 }
 @media only screen and (max-width: 374px) {
@@ -3789,7 +4261,7 @@ button#audioToggleBtn:hover {
         max-width: 84px;
         top: -16px;
     }
-    ul.flexybox li.offer-listing-elements > .offer-listing-anchor {
+    ul.flexybox li.offer-listing-elements>.offer-listing-anchor .offer-list-swing{
         padding: 45px 16px;
     }
     .word-item-group ul > li {
@@ -3800,11 +4272,6 @@ button#audioToggleBtn:hover {
     }
     .word-item-group ul > li:nth-child(3) {
         padding: 18px 20px;
-    }
-    .wood-list > .word-item-group:first-child,
-    .wood-list > .word-item-group:nth-child(2),
-    .word-item-group {
-        margin-top: -14px;
     }
     ul.techlogo-list > li {
         flex: 0 0 112px;
@@ -3872,9 +4339,12 @@ button#audioToggleBtn:hover {
         width: 100px;
         height: 100px;
     }
-    .section-8.horzanim .clients-toy {
+    .section-8.horzanim .clients-toy{
         max-width: 50px;
         left: 28px;
         bottom: 30px;
+    }
+    .section-6.horzanim .features-toy{
+        max-width: 38px;
     }
 }
